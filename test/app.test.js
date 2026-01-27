@@ -6,7 +6,10 @@ describe("GET /", () => {
     const res = await request(app).get("/");
     expect(res.statusCode).toBe(200);
     expect(res.body.status).toBe("ok");
-    describe('GET /health', () => {
+    
+  });
+});
+describe('GET /health', () => {
   test('returns 200 and healthy status', async () => {
     const res = await request(app).get('/health');
     expect(res.statusCode).toBe(200);
@@ -17,7 +20,5 @@ describe("GET /", () => {
     const res = await request(app).get('/health');
     expect(res.body.uptime).toBeDefined();
     expect(typeof res.body.uptime).toBe('number');
-  });
-});
   });
 });
