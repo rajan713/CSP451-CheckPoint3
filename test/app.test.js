@@ -6,19 +6,31 @@ describe("GET /", () => {
     const res = await request(app).get("/");
     expect(res.statusCode).toBe(200);
     expect(res.body.status).toBe("ok");
-    
   });
 });
-describe('GET /health', () => {
-  test('returns 200 and healthy status', async () => {
-    const res = await request(app).get('/health');
+describe("GET /health", () => {
+  test("returns 200 and healthy status", async () => {
+    const res = await request(app).get("/health");
     expect(res.statusCode).toBe(200);
-    expect(res.body.status).toBe('healthy');
+    expect(res.body.status).toBe("healthy");
   });
 
-  test('returns uptime as a number', async () => {
-    const res = await request(app).get('/health');
+  test("returns uptime as a number", async () => {
+    const res = await request(app).get("/health");
     expect(res.body.uptime).toBeDefined();
-    expect(typeof res.body.uptime).toBe('number');
+    expect(typeof res.body.uptime).toBe("number");
+  });
+});
+describe("GET /health", () => {
+  test("returns 200 and healthy status", async () => {
+    const res = await request(app).get("/health");
+    expect(res.statusCode).toBe(200);
+    expect(res.body.status).toBe("healthy");
+  });
+
+  test("returns uptime as a number", async () => {
+    const res = await request(app).get("/health");
+    expect(res.body.uptime).toBeDefined();
+    expect(typeof res.body.uptime).toBe("number");
   });
 });

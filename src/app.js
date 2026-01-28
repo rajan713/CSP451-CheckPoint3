@@ -2,13 +2,20 @@ const express = require("express");
 
 const app = express();
 
-app.get("/broken", (req, res) => {
-res.send("oops");})
-res.json({ status: "ok", message: "Hello from CSP451" });
+// Root endpoint
+app.get("/", (req, res) => {
+  res.json({ status: "ok", message: "Hello from CSP451" });
 });
-app.get('/health', (req, res) => {
+
+// Broken endpoint (for testing)
+app.get("/broken", (req, res) => {
+  res.send("oops");
+});
+
+// Health endpoint
+app.get("/health", (req, res) => {
   res.status(200).json({
-    status: 'healthy',
+    status: "healthy",
     uptime: process.uptime(),
   });
 });
@@ -20,4 +27,3 @@ if (require.main === module) {
   const port = process.env.PORT || 3000;
   app.listen(port, () => console.log(`Listening on ${port}`));
 }
-
